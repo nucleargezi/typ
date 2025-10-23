@@ -1,6 +1,6 @@
 
 #import "../packages/zebraw.typ": *
-#import "@preview/shiroa:0.2.3": is-web-target, is-pdf-target, plain-text, is-html-target, templates
+#import "@preview/shiroa:0.2.3": is-html-target, is-pdf-target, is-web-target, plain-text, templates
 #import templates: *
 #import "mod.typ": *
 #import "theme.typ": *
@@ -26,9 +26,9 @@
 #let build-kind = sys.inputs.at("build-kind", default: default-kind)
 
 #let text-fonts = (
-  "Libertinus Serif",
-  // todo: exclude it if language is not Chinese.
-  "Source Han Serif SC",
+  (name: "Latin Modern Roman", covers: "latin-in-cjk"),
+  "Noto Serif CJK SC",
+  "Noto Color Emoji",
 )
 
 #let code-font = (
