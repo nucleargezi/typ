@@ -66,7 +66,6 @@
   set text(font: text-fonts)
 
   set text(main-size) if sys-is-html-target
-  set text(fill: rgb("dfdfd6")) if is-dark-theme and sys-is-html-target
   show link: set text(fill: dash-color)
 
   show heading: it => {
@@ -130,28 +129,14 @@
 }
 
 #let code-block-rules(body) = {
-  let init-with-theme((code-extra-colors, is-dark)) = if is-dark {
-    zebraw-init.with(
-      // should vary by theme
-      background-color: if code-extra-colors.bg != none {
-        (code-extra-colors.bg, code-extra-colors.bg)
-      },
-      highlight-color: rgb("#3d59a1"),
-      comment-color: rgb("#394b70"),
-      lang-color: rgb("#3d59a1"),
-      lang: false,
-      numbering: false,
-    )
-  } else {
-    zebraw-init.with(
-      // should vary by theme
-      background-color: if code-extra-colors.bg != none {
-        (code-extra-colors.bg, code-extra-colors.bg)
-      },
-      lang: false,
-      numbering: false,
-    )
-  }
+  let init-with-theme((code-extra-colors, is-dark)) = zebraw-init.with(
+    // should vary by theme
+    background-color: if code-extra-colors.bg != none {
+      (code-extra-colors.bg, code-extra-colors.bg)
+    },
+    lang: false,
+    numbering: false,
+  )
 
   /// HTML code block supported by zebraw.
   show: init-with-theme(default-theme)
@@ -168,7 +153,7 @@
       let code-extra-colors = theme.code-extra-colors
       let use-fg = not inline and code-extra-colors.fg != none
       set text(fill: code-extra-colors.fg) if use-fg
-      set text(fill: if theme.is-dark { rgb("dfdfd6") } else { black }) if not use-fg
+      set text(fill: black) if not use-fg
       set raw(theme: theme-style.code-theme) if theme.style.code-theme.len() > 0
       set par(justify: false)
       zebraw(

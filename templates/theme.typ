@@ -5,7 +5,6 @@
 #let sys-is-html-target = book-sys.sys-is-html-target
 
 // Theme (Colors)
-#let dark-theme = book-theme-from(toml("theme-style.toml"), xml: it => xml(it), target: "web-ayu")
 #let light-theme = book-theme-from(
   toml("theme-style.toml"),
   xml: it => xml(it),
@@ -15,20 +14,10 @@
     "pdf"
   },
 )
-#let default-theme = if sys-is-html-target {
-  dark-theme
-} else {
-  light-theme
-}
+#let default-theme = light-theme
 
 #let theme-frame(render, tag: "div", class: none, theme-tag: none) = if is-md-target {
   show: html.elem.with(tag)
-  show: html.elem.with("picture")
-  html.elem(
-    "m1source",
-    attrs: (media: "(prefers-color-scheme: dark)"),
-    render(dark-theme),
-  )
   render(light-theme)
 } else if sys-is-html-target {
   if theme-tag == none {
@@ -36,19 +25,8 @@
   }
   html.elem(
     tag,
-    attrs: (class: "code-image themed" + if class != none { " " + class }),
-    {
-      html.elem(
-        theme-tag,
-        render(dark-theme),
-        attrs: (class: "dark"),
-      )
-      html.elem(
-        theme-tag,
-        render(light-theme),
-        attrs: (class: "light"),
-      )
-    },
+    attrs: (class: "code-image" + if class != none { " " + class }),
+    render(light-theme),
   )
 } else {
   render(default-theme)
