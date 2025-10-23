@@ -42,19 +42,13 @@
 }
 
 #let blog-tags = (
-  programming: "Programming",
-  software: "Software",
-  network: "Network",
-  software-engineering: "Software Engineering",
-  tooling: "Tooling",
-  linux: "Linux",
-  dev-ops: "DevOps",
-  compiler: "Compiler",
-  music-theory: "Music Theory",
-  tinymist: "Tinymist",
-  golang: "Golang",
   typst: "Typst",
-  misc: "Miscellaneous",
+  cpp: "cpp",
+  rs: "rust",
+  temp: "tmeplate",
+  alg: "algorithm",
+  tech: "technology",
+  train: "train record",
 )
 
 #let archive-tags = (
