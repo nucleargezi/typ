@@ -49,6 +49,7 @@
   alg: "algorithm",
   tech: "technology",
   train: "train record",
+  sol: "solution",
 )
 
 #let archive-tags = (
