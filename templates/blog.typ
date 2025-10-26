@@ -5,3 +5,5 @@
 #let main-en = main
 // shortcut for Chinese blog posts
 #let main-zh = main.with(lang: "zh", region: "cn")
+
+#let zebraw = zebraw.with(inset: (top: 3pt, bottom: 3pt))
