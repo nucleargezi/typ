@@ -45,13 +45,16 @@
   typst: "Typst",
   cpp: "cpp",
   rs: "rust",
+
   temp: "tmeplate",
   alg: "algorithm",
   tech: "technology",
   train: "train record",
   sol: "solution",
+
   contest: "contest",
   tour: "tour",
+  rec: "record",
 )
 
 #let archive-tags = (
