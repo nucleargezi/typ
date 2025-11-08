@@ -50,6 +50,8 @@
   tech: "technology",
   train: "train record",
   sol: "solution",
+  contest: "contest",
+  tour: "tour",
 )
 
 #let archive-tags = (
