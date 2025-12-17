@@ -42,7 +42,7 @@
   10.5pt
 }
 // ,
-#let heading-sizes = (22pt, 18pt, 14pt, 12pt, main-size)
+#let heading-sizes = (22pt, 18pt, 14pt, 12pt, 10pt, 9pt, main-size)
 #let list-indent = 0.5em
 
 /// Creates an embedded block typst frame.
@@ -69,7 +69,8 @@
   show link: set text(fill: dash-color)
 
   show heading: it => {
-    set text(size: heading-sizes.at(it.level, default: main-size))
+
+    set text(size: heading-sizes.at(it.level))
 
     block(
       spacing: 0.7em * 1.5 * 1.2,
