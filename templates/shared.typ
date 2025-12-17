@@ -69,7 +69,7 @@
   show link: set text(fill: dash-color)
 
   show heading: it => {
-    set text(size: heading-sizes.at(it.level))
+    set text(size: heading-sizes.at(it.level, default: main-size))
 
     block(
       spacing: 0.7em * 1.5 * 1.2,
