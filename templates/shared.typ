@@ -302,7 +302,7 @@
     )
     v(16pt)
 
-    outline()
+    outline(depth: 4)
     pagebreak()
   }
 
